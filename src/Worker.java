@@ -15,39 +15,42 @@ public class Worker implements Runnable {
     @Override
     public void run() {
         for (int x = 3; x < MaxX; x += 2) {
-            double X = Math.log((q * x + 1) / x) / Utils.log2;
-            if (check(X, x) && !results.contains(x)) results.add(x);
+            if(check(x)) {
+            for(int a = 0;a < MIPL; a++) {
+                double X_0 = (q*(x) + 1) / (Utils.TwoPow(a));
+                if(X_0 == x && !results.contains(x)) results.add(x);
+                
+                for(int b = 0;b < MIPL; b++) {
+                    double X_1 = (q*(X_0) + 1) / (Utils.TwoPow(b));
+                    if(X_1 == x && !results.contains(x)) results.add(x);
 
-            for (int a = 0; a < MIPL; a++) {
-                double B = Math.log((x * Utils.XPow(q, 2) + q + Utils.TwoPow(a)) / x) / Utils.log2;
-                B -= a;
-                if (check(B, x) && !results.contains(x)) results.add(x);
-
-                for(int b = 0; b < MIPL; b++) {
-                    double C = Equation.solve(b, X, new double[] {a,b});
-                    if(check(C, x) && !results.contains(x)) results.add(x);
-                    
                     for(int c = 0;c < MIPL; c++) {
-                        double D = Equation.solve(b, X, new double[] {a,b,c});
-                        if(check(D, x) && !results.contains(x)) results.add(x);
+                        double X_2 = (q*(X_1) + 1) / (Utils.TwoPow(c));
+                        if(X_2 == x && !results.contains(x)) results.add(x);
 
-                        for (int d = 0;d < MIPL; d++) {
-                            double E = Equation.solve(b, X, new double[] {a,b,c,d});
-                            if(check(E, x) && !results.contains(x)) results.add(x);
+                        for(int d = 0; d < MIPL; d++) {
+                            double X_3 = (q*(X_2) + 1) / (Utils.TwoPow(d));
+                            if(X_3 == x && !results.contains(x)) results.add(x);
 
-                            for(int e = 0;e < MIPL; e++) {
-                                double F = Equation.solve(b, X, new double[] {a,b,c,d,e});
-                                if(check(F, x) && !results.contains(x)) results.add(x);
+                            for(int e = 0; e < MIPL; e++) {
+                                double X_4 = (q*(X_3) + 1) / (Utils.TwoPow(e));
+                                if(X_4 == x && !results.contains(x)) results.add(x);
+                                
+                                for(int f = 0; f < MIPL; f++) {
+                                    double X_5 = (q*(X_4) + 1) / (Utils.TwoPow(e));
+                                    if(X_5 == x && !results.contains(x)) results.add(x);
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        }
         System.out.println("For q=" + q + ": " + results);
     }
 
-    public boolean check(double d, double x) {
-        return d == (int) d && d >= 0 && !Utils.isInt(Math.log(x * q + 1) / Utils.log2);
+    public boolean check(double x) {
+        return !Utils.isInt(Math.log(x * q + 1) / Utils.log2);
     }
 }

@@ -3,15 +3,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class App {
-    static int MaxQ = 9;
-    static int MaxX = 100;
-    static int MIPL = 20; // Optimal depth, do NOT edit
+    static int MaxQ = 10_000_000;
+    static int MaxX = 5_000_000;
+    static int MIPL = 30; // Optimal depth, do NOT edit
 
     public static void main(String[] args) throws Exception {
         ExecutorService ES = Executors.newCachedThreadPool();
-        for (int i = 5; i < MaxQ; i += 2) { // Odd 'q's only!
+        for (int i = 3; i < MaxQ; i += 2) { // Odd 'q's only!
             if(
-                true // !Utils.isInt(Math.log(i+1) / Utils.log2)
+                !Utils.isInt(Math.log(i+1) / Utils.log2)
             ) {
                 Worker W = new Worker(i, MaxX, MIPL);
                 ES.execute(W);
