@@ -37,7 +37,7 @@ public class Worker implements Runnable {
                                 if(X_4 == x && !results.contains(x)) results.add(x);
                                 
                                 for(int f = 0; f < MIPL; f++) {
-                                    double X_5 = (q*(X_4) + 1) / (Utils.TwoPow(e));
+                                    double X_5 = (q*(X_4) + 1) / (Utils.TwoPow(f));
                                     if(X_5 == x && !results.contains(x)) results.add(x);
                                 }
                             }
