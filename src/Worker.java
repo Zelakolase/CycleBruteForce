@@ -53,7 +53,9 @@ public class Worker implements Runnable {
                 }
             }
         }
-        System.out.println("For q=" + q + ": " + results);
+        if(results.size()>0) {
+            for(Integer r : results) System.out.println(q+","+r);
+        }
     }
 
     public boolean check(double x) {
