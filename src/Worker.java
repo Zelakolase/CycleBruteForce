@@ -40,6 +40,11 @@ public class Worker implements Runnable {
                                     double X_4 = (q * (X_3) + 1) / (Utils.TwoPow(e));
                                     if (X_4 == x && !results.contains(x))
                                         results.add(x);
+                                    for (int f = 0; f < MIPL; f++) {
+                                        double X_5 = (q * (X_4) + 1) / (Utils.TwoPow(f));
+                                        if (X_5 == x && !results.contains(x))
+                                            results.add(x);
+                                    }
                                 }
                             }
                         }
@@ -47,8 +52,10 @@ public class Worker implements Runnable {
                 }
             }
         }
-        if(results.size()>0) {
-            for(Integer r : results) if(CycleChecker.check(q, r)) System.out.println(q+","+r);
+        if (results.size() > 0) {
+            for (Integer r : results)
+                if (CycleChecker.check(q, r))
+                    System.out.println(q + "," + r);
         }
     }
 
