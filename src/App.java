@@ -3,14 +3,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class App {
-    static int MaxQ = 9;
+    static int MaxQ = 10_000;
     static int MaxX = 10_000;
     static int MIPL = 20; // Optimal depth, do NOT edit
 
     public static void main(String[] args) throws Exception {
         System.out.println("q,cycle");
-        ExecutorService ES = Executors.newCachedThreadPool();
-        for (int i = 5; i < MaxQ; i += 2) { // Odd 'q's only!
+        ExecutorService ES = Executors.newFixedThreadPool(1000);
+        for (int i = 3; i < MaxQ; i += 2) { // Odd 'q's only!
             if(
                 !Utils.isInt(Math.log(i+1) / Utils.log2)
             ) {
