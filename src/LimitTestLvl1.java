@@ -2,8 +2,8 @@ public class LimitTestLvl1 {
     public static void main(String[] args) {
         System.out.println("q,x");
         double x = 10e100 + 1;
-        for(int q = 1;q < 5000;q += 2) {
-            for(int a = 0; a < 20; a++) {
+        for(int q = 3;q < 5001;q += 2) {
+            for(int a = 0; a < 30; a++) {
                 double B = Math.log(((x * Utils.XPow(q, 2)) + q + Utils.TwoPow(a)) / (x)) / Utils.log2;
                 B += -a;
                 for(int it = 0; it <= Math.ceil(B); it++) {

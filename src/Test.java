@@ -1,5 +1,5 @@
 public class Test {
     public static void main(String[] args) {
-        System.out.println(CycleChecker.check( 5 , 13));
+        System.out.println(CycleChecker.check( 181 , 611));
     }
 }
