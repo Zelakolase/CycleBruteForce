@@ -13,17 +13,18 @@ public class LimitTestLvl5 {
                                         (q*Utils.TwoPow(a+b+c+d))+
                                         (Utils.XPow(q, 2)*Utils.TwoPow(a+b+c))+
                                         (Utils.TwoPow(a+b)*Utils.XPow(q, 3))+
+                                        (Utils.TwoPow(a)*Utils.XPow(q, 5))+
                                         Utils.XPow(q, 5)+
                                         (Utils.XPow(q, 6)*x)
                                     )
                                 ) / Utils.log2;
                                 F += -a-b-c-d-e;
                                 for(int f = 0;f <= Math.ceil(F);f++) {
-                                    double X = -Utils.TwoPow(a+b+c+d+e) -
-                                    (Utils.TwoPow(a+b+c+d)*q)-
-                                    (Utils.TwoPow(a+b+c)*Utils.XPow(q, 2))-
-                                    (Utils.TwoPow(a+b)*Utils.XPow(q, 3))-
-                                    (Utils.TwoPow(a)*Utils.XPow(q, 4)) - Utils.XPow(q, 5);
+                                    double X = -Utils.TwoPow(a+b+c+d+e) +
+                                    (-Utils.TwoPow(a+b+c+d)*q)+
+                                    (-Utils.TwoPow(a+b+c)*Utils.XPow(q, 2))+
+                                    (-Utils.TwoPow(a+b)*Utils.XPow(q, 3))+
+                                    (-Utils.TwoPow(a)*Utils.XPow(q, 4)) - Utils.XPow(q, 5);
                                     X = X / (-Utils.TwoPow(a+b+c+d+e+f) + Utils.XPow(q, 6));
                                     if(Utils.isInt(X) && CycleChecker.check(q, X)) System.out.println(q+","+X);
                                 }
