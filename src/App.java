@@ -4,19 +4,15 @@ import java.util.concurrent.TimeUnit;
 
 public class App {
     static int MaxQ = 5001;
-    static int MaxX = 50;
+    static int MaxX = 5001;
     static int MIPL = 30; // Optimal depth, do NOT edit
 
     public static void main(String[] args) throws Exception {
         System.out.println("q,cycle");
         ExecutorService ES = Executors.newFixedThreadPool(1000);
-        for (int i = 5; i < MaxQ; i += 2) { // Odd 'q's only!
-            if(
-                !Utils.isInt(Math.log(i+1) / Utils.log2)
-            ) {
+        for (int i = 3; i < MaxQ; i += 2) { // Odd 'q's only!
                 Worker W = new Worker(i, MaxX, MIPL);
-                ES.execute(W);
-            }
+                if(!Utils.isInt(Math.log(i+1) / Utils.log2)) ES.execute(W);
         }
         atAS(ES);
     }

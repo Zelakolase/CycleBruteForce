@@ -14,6 +14,6 @@ public class Utils {
         return (double) result;
     }
     public static boolean isInt(double d) {
-        return d == (int) d;
+        return d == (int) d && d%2!=0;
     }
 }
