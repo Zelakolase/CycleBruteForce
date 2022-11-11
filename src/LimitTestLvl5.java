@@ -1,5 +1,6 @@
 public class LimitTestLvl5 {
     public static void main(String[] args) {
+        CycleChecker CycleChecker = new CycleChecker();
         double x = ConfigurationForLimitTest.MaxX;
         for (int q = ConfigurationForLimitTest.MinQ; q < ConfigurationForLimitTest.MaxQ; q += 2) {
             for (int a = 0; a < ConfigurationForLimitTest.MIPL; a++) {

@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class CycleChecker {
-    public static boolean check(double q, double x) {
+    public boolean check(double q, double x) {
         boolean isCycle = false, whileStopper = false;
 
         double[] results = new double[201];
