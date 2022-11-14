@@ -54,7 +54,7 @@ public class Worker implements Runnable {
         }
         if (results.size() > 0) {
             for (Integer r : results)
-                    System.out.println(q + "," + r);
+                System.out.println(q + "," + r);
         }
     }
 
