@@ -1,20 +1,21 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CycleChecker {
     public boolean check(double q, double x) {
-        if((double)(x/q) > 10000) return false;
+        if(x == 1 || x == -1) return false;
         boolean isCycle = false;
 
-        ArrayList<Long> results = new ArrayList<>();
+        long[] results = new long[150];
         long temp = (long) x;
         int pointer = 0;
-        while(pointer < 100) {
+        while(pointer < 150) {
             temp = (long) (temp%2==0? temp/2 : temp*(q)+1);
-            if(results.contains(temp)) {
-                if(!results.contains(1l)) isCycle = true; // Check for non-trivial cycles
+            if(temp == 1 || temp == -1) break;
+            if(Arrays.binarySearch(results, temp) >= 0) {
+                isCycle = true;
                 break;
             }
-            results.add(temp);
+            results[pointer] = temp;
             pointer++;
         }
 

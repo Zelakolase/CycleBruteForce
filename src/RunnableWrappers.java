@@ -55,4 +55,33 @@ public class RunnableWrappers {
         }
 
     }
+    public static class L7 implements Runnable {
+
+        @Override
+        public void run() {
+            LimitTestLvl7.main(new String[] {});
+        }
+
+    }
+    public static class L8 implements Runnable {
+
+        @Override
+        public void run() {
+            LimitTestLvl8.main(new String[] {});
+        }
+    }
+    public static class L9 implements Runnable {
+
+        @Override
+        public void run() {
+            LimitTestLvl9.main(new String[] {});
+        }
+    }
+    public static class L10 implements Runnable {
+
+        @Override
+        public void run() {
+            LimitTestLvl10.main(new String[] {});
+        }
+    }
 }

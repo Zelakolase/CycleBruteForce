@@ -1,3 +1,4 @@
+package lib;
 public class Utils {
     public static double log2 = Math.log(2);
     public static double TwoPow(long power) {
