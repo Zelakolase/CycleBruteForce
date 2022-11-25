@@ -1,19 +1,22 @@
+package Oldv1;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import lib.ConfigurationForLimitTest;
+import lib.Utils;
+
 
 public class App {
-    public static void main(String[] args) {
-        int MinLevel = 0; // Inclusive
-        int MaxLevel = 100; // Exclusive
+    static int MaxQ = 423;
+    static int MaxX = 10_001;
+    static int MIPL = 30; // Optimal depth, do NOT edit
+
+    public static void main(String[] args) throws Exception {
+        System.out.println("q,cycle");
         ExecutorService ES = Executors.newFixedThreadPool(1000);
-        for (int q = ConfigurationForLimitTest.MinQ; q < ConfigurationForLimitTest.MaxQ; q+=2) {
-            for (int i = MinLevel; i < MaxLevel; i++) {
-                Worker w = new Worker(q, i);
-                ES.submit(w);
-            }
+        for (int i = 421; i < MaxQ; i += 2) { // Odd 'q's only!
+                Worker W = new Worker(i, MaxX, MIPL);
+                if(!Utils.isInt(Math.log(i+1) / Utils.log2)) ES.execute(W);
         }
         atAS(ES);
     }
