@@ -2,11 +2,11 @@ package Oldv2;
 
 import lib.Algo;
 import lib.ConfigurationForLimitTest;
+import lib.CycleChecker;
 import lib.Utils;
 
 public class LimitTestLvl6 {
     public static void main(String[] args) {
-        CycleChecker CycleChecker = new CycleChecker();
         double x = ConfigurationForLimitTest.MaxX;
         for (int q = ConfigurationForLimitTest.MinQ; q < ConfigurationForLimitTest.MaxQ; q += 2) {
             for (int a = 0; a < q + 1; a++) {

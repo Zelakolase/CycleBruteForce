@@ -6,7 +6,6 @@ import lib.Utils;
 
 public class LimitTestLvl9 {
     public static void main(String[] args) {
-        CycleChecker CycleChecker = new CycleChecker();
         double x = ConfigurationForLimitTest.MaxX;
         for (int q = ConfigurationForLimitTest.MinQ; q < ConfigurationForLimitTest.MaxQ; q += 2) {
             for (int a = 0; a < q + 1; a++) {
@@ -21,7 +20,7 @@ public class LimitTestLvl9 {
                                                 double J = Algo.LVE(x, q, new int[] { a, b, c, d, e, f, g, h, i });
                                                 for (int j = 0; j <= Math.ceil(J); j++) {
                                                     double X = Algo.tail(q, new int[] { a, b, c, d, e, f, g, h, i, j });
-                                                    if (Utils.isInt(X) && CycleChecker.check(q, X))
+                                                    if (Utils.isInt(X) && lib.CycleChecker.check(q, X))
                                                         System.out.println(q + "," + X);
                                                 }
                                             }

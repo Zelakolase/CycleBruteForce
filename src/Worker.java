@@ -1,7 +1,7 @@
-import Oldv2.CycleChecker;
 import lib.Algo;
 import lib.Clock;
 import lib.ConfigurationForLimitTest;
+import lib.CycleChecker;
 import lib.Utils;
 
 public class Worker implements Runnable {
