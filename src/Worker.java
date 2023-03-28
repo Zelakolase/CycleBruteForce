@@ -15,6 +15,7 @@ public class Worker implements Runnable {
 
     @Override
     public void run() {
+        boolean exists = false;
         Clock c = new Clock(NestedSize, q + 1);
         do {
             double K = Algo.LVE(ConfigurationForLimitTest.MaxX, q, c.Clock);
@@ -23,9 +24,12 @@ public class Worker implements Runnable {
                 System.arraycopy(c.Clock, 0, total, 0, c.Clock.length);
                 System.arraycopy(new int[] { k }, 0, total, c.Clock.length, 1);
                 double X = Algo.tail(q, total);
-                if (Utils.isInt(X) && CycleChecker.check(q, X))
+                if (Utils.isInt(X) && CycleChecker.check(q, X) && X < ConfigurationForLimitTest.MaxX) {
+                    exists = true;
                     System.out.println(q + "," + X);
+                    }
             }
         } while (c.add());
+        if(!exists) System.out.println("No cycles for q="+q);
     }
 }

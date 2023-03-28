@@ -7,8 +7,9 @@ import lib.ConfigurationForLimitTest;
 public class App {
     public static void main(String[] args) {
         int MinLevel = 0; // Inclusive
-        int MaxLevel = 25; // Exclusive
-        ExecutorService ES = Executors.newCachedThreadPool();
+        int MaxLevel = 9; // Exclusive
+        ExecutorService ES = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        System.out.println("q, x");
         for (int q = ConfigurationForLimitTest.MinQ; q < ConfigurationForLimitTest.MaxQ; q+=2) {
             for (int i = MinLevel; i < MaxLevel; i++) {
                 Worker w = new Worker(q, i);
