@@ -7,13 +7,16 @@ import lib.ConfigurationForLimitTest;
 public class App {
     public static void main(String[] args) {
         int MinLevel = 0; // Inclusive
-        int MaxLevel = 9; // Exclusive
+        int MaxLevel = 100; // Exclusive
         ExecutorService ES = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-        System.out.println("q, x");
+        System.out.println("For qx+c");
+        System.out.println("q, c, x");
         for (int q = ConfigurationForLimitTest.MinQ; q < ConfigurationForLimitTest.MaxQ; q+=2) {
             for (int i = MinLevel; i < MaxLevel; i++) {
-                Worker w = new Worker(q, i);
+                for(int c = ConfigurationForLimitTest.MinC; c < ConfigurationForLimitTest.MaxC; c+=2) {
+                Worker w = new Worker(q, c, i);
                 ES.submit(w);
+                }
             }
         }
         atAS(ES);
