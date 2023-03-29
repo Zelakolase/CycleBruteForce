@@ -17,7 +17,6 @@ public class Worker implements Runnable {
 
     @Override
     public void run() {
-        boolean exists = false;
         Clock c = new Clock(NestedSize, q + 1);
         do {
             double K = Algo.LVE(ConfigurationForLimitTest.MaxX, q, this.c, c.Clock);
@@ -29,11 +28,9 @@ public class Worker implements Runnable {
                 int maxProbableCycleLength = c.Clock.length;
                 for(int temp = 0; temp < c.Clock.length; temp++) maxProbableCycleLength += c.Clock[temp];
                 if (Utils.isInt(X) && CycleChecker.check(q, this.c , X, maxProbableCycleLength) && X < ConfigurationForLimitTest.MaxX) {
-                    exists = true;
                     System.out.println(q + "," + this.c + "," + X);
                     }
             }
         } while (c.add());
-        if(!exists) System.out.println("No cycles for q="+q+" c="+this.c);
     }
 }

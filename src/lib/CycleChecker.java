@@ -13,7 +13,7 @@ public class CycleChecker {
             temp = (long) (temp%2==0? temp/2 : temp*(q)+c);
             if(Arrays.binarySearch(results, temp) >= 0) {
                 isCycle = true;
-                if(Arrays.binarySearch(results, 1l) >= 0) isCycle = false;
+                if(Arrays.binarySearch(results, 1) >= 0) isCycle = false;
                 break;
             }
             results[pointer] = temp;
