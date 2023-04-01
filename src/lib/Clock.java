@@ -3,13 +3,22 @@ package lib;
 import java.util.Arrays;
 
 public class Clock {
+    /*
+     * A multivariate clock
+     */
+
     public int[] Clock;
     int UpperBoundary = 0;
+
     public Clock(int Length, int UB) {
         UpperBoundary = UB;
         Clock = new int[Length];
         Arrays.fill(Clock, 0);
     }
+
+    /*
+     * Every add() increases the multivariate clock by 1 (one tick)
+     */
     public boolean add() {
         int tempIndex = 0; 
         boolean done = false;

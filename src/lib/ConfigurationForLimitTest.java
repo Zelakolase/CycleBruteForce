@@ -1,8 +1,8 @@
 package lib;
 public class ConfigurationForLimitTest {
-    public static int MinQ = 3;
-    public static int MaxQ = 5;
-    public static int MinC = 3;
-    public static int MaxC = 103;
-    public static double MaxX = 1_000_000d;
+    public static int MinQ = 5; // Inclusive
+    public static int MaxQ = 11; // Exclusive
+    public static int MinC = 1; // Inclusive
+    public static int MaxC = 11; // Exclusive
+    public static double MaxX = 1_000_000d; // Exclusive
 }
